@@ -1,0 +1,2 @@
+module TyperelassociatesHelper
+end

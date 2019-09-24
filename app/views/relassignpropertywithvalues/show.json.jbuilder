@@ -1,0 +1,1 @@
+json.partial! "relassignpropertywithvalues/relassignpropertywithvalue", relassignpropertywithvalue: @relassignpropertywithvalue

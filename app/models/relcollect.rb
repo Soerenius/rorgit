@@ -1,0 +1,2 @@
+class Relcollect < ApplicationRecord
+end

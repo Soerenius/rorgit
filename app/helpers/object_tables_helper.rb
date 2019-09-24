@@ -1,0 +1,2 @@
+module ObjectTablesHelper
+end

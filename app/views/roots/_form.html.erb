@@ -1,0 +1,68 @@
+<%= form_with(model: root, local: true) do |f| %>
+  <% if root.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(root.errors.count, "error") %> prohibited this root from being saved:</h2>
+
+      <ul>
+        <% root.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :guid %>
+    <%= f.text_field :guid %>
+  </div>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :versionDate %>
+    <%= f.text_field :versionDate %>
+  </div>
+
+  <div class="field">
+    <%= f.label :versionId %>
+    <%= f.text_field :versionId %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+
+  <div class='checkbox'><%= f.check_box(:level, {:multiple => false}, "Gruppe", nil) %>Gruppe</div>
+
+  <div class='checkbox'><%= f.check_box(:level, {:multiple => false}, "Fachobjekt", nil) %>Fachobjekt</div>
+
+  <div class='checkbox'><%= f.check_box(:level, {:multiple => false }, "Attribut", nil) %>Attribut</div>
+
+  <div class='checkbox'><%= f.check_box(:level, {:multiple => false }, "Akteur", nil) %>Akteur</div>
+
+  <div class='checkbox'><%= f.check_box(:level, {:multiple => false }, "Aktivität", nil) %>Aktivität</div>
+
+  <div class='checkbox'><%= f.check_box(:level, {:multiple => false}, "Einheit", nil) %>Einheit</div>
+
+  <div class='checkbox'><%= f.check_box(:level, {:multiple => false }, "Maß mit Einheit", nil) %>Maß mit Einheit</div>
+
+  <div class='checkbox'><%= f.check_box(:level, {:multiple => false }, "Wert", nil) %>Wert</div>
+
+  <div class='checkbox'><%= f.check_box(:level, {:multiple => false }, "Externes Dokument", nil) %>Externes Dokument</div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+  <style>
+  .checkbox {   margin-top: 10px;}
+
+  </style>
+
+
+
+<% end %>

@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Relassignvalues</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @relassignvalues.each do |relassignvalue| %>
+      <tr>
+        <td><%= link_to 'Show', relassignvalue %></td>
+        <td><%= link_to 'Edit', edit_relassignvalue_path(relassignvalue) %></td>
+        <td><%= link_to 'Destroy', relassignvalue, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Relassignvalue', new_relassignvalue_path %>

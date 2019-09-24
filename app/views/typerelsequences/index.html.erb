@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Typerelsequences</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @typerelsequences.each do |typerelsequence| %>
+      <tr>
+        <td><%= link_to 'Show', typerelsequence %></td>
+        <td><%= link_to 'Edit', edit_typerelsequence_path(typerelsequence) %></td>
+        <td><%= link_to 'Destroy', typerelsequence, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Typerelsequence', new_typerelsequence_path %>

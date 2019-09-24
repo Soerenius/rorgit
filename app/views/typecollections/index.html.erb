@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Typecollections</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @typecollections.each do |typecollection| %>
+      <tr>
+        <td><%= link_to 'Show', typecollection %></td>
+        <td><%= link_to 'Edit', edit_typecollection_path(typecollection) %></td>
+        <td><%= link_to 'Destroy', typecollection, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Typecollection', new_typecollection_path %>

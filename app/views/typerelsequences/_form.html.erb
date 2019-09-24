@@ -1,0 +1,17 @@
+<%= form_with(model: typerelsequence, local: true) do |form| %>
+  <% if typerelsequence.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(typerelsequence.errors.count, "error") %> prohibited this typerelsequence from being saved:</h2>
+
+      <ul>
+        <% typerelsequence.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

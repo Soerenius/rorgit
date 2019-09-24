@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Reldocuments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reldocuments.each do |reldocument| %>
+      <tr>
+        <td><%= link_to 'Show', reldocument %></td>
+        <td><%= link_to 'Edit', edit_reldocument_path(reldocument) %></td>
+        <td><%= link_to 'Destroy', reldocument, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Reldocument', new_reldocument_path %>

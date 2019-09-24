@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Relcollects</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Guid</th>
+      <th>Guid relroot</th>
+      <th>Guid relcollection</th>
+      <th>Guid typecollection</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @relcollects.each do |relcollect| %>
+      <tr>
+        <td><%= relcollect.guid %></td>
+        <td><%= relcollect.guid_relRoot %></td>
+        <td><%= relcollect.guid_relCollection %></td>
+        <td><%= relcollect.guid_typeCollection %></td>
+        <td><%= link_to 'Show', relcollect %></td>
+        <td><%= link_to 'Edit', edit_relcollect_path(relcollect) %></td>
+        <td><%= button_to 'Destroy', relcollect, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Relcollect', new_relcollect_path %>

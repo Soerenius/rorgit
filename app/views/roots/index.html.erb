@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Roots</h1>
+
+Job Level Filter
+
+<p>
+
+<%= link_to "Intern", jobs_path(:level =>"Intern") %>
+
+<%= link_to "Fresh Grad", jobs_path(:level =>"Fresh Grad") %>
+
+<%= link_to "Junior", jobs_path(:level =>"Junior") %>
+
+<%= link_to "Senior", jobs_path(:level =>"Senior") %>
+
+<%= link_to "Manager", jobs_path(:level =>"Manager") %>
+
+<%= link_to "Director", jobs_path(:level =>"Director") %>
+
+<%= link_to "Co-founder", jobs_path(:level =>"Co-founder") %>
+
+<%= link_to "Others", jobs_path(:level =>"Others") %>
+
+<%= link_to "Clear", jobs_path(@jobs) %>
+
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Guid</th>
+      <th>Name</th>
+      <th>Versiondate</th>
+      <th>Versionid</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+    <style>
+th, td {
+border: 1px solid black;
+}
+</style>
+  </thead>
+
+  <tbody>
+    <% @roots.each do |root| %>
+      <tr>
+        <td><%= root.guid %></td>
+        <td><%= root.name %></td>
+        <td><%= root.versionDate %></td>
+        <td><%= root.versionId %></td>
+        <td><%= root.description %></td>
+        <td><%= link_to 'Show', root %></td>
+        <td><%= link_to 'Edit', edit_root_path(root) %></td>
+        <td><%= button_to 'Destroy', root, method: :delete, data: { turbolinks: false, confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Root', new_root_path %>

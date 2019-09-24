@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Guid:</strong>
+  <%= @root.guid %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @root.name %>
+</p>
+
+<p>
+  <strong>Versiondate:</strong>
+  <%= @root.versionDate %>
+</p>
+
+<p>
+  <strong>Versionid:</strong>
+  <%= @root.versionId %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @root.description %>
+</p>
+
+<%= link_to 'Edit', edit_root_path(@root) %> |
+<%= link_to 'Back', roots_path %>

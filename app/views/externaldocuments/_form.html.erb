@@ -1,0 +1,17 @@
+<%= form_with(model: externaldocument, local: true) do |form| %>
+  <% if externaldocument.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(externaldocument.errors.count, "error") %> prohibited this externaldocument from being saved:</h2>
+
+      <ul>
+        <% externaldocument.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
