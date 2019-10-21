@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
+  
+  resources :no_groups
+  resources :doppelte_objects
+  resources :root_externaldocuments
+  resources :root_collections
+  resources :root_objects
   get 'welcome/index'
   root 'welcome#index'
+  resources :search_collections
+  resources :imp_search_objects
   resources :object_tables
   resources :relassignproperties
   resources :relassignmeasures
@@ -24,7 +32,7 @@ Rails.application.routes.draw do
   resources :externaldocuments
   resources :relcollects
   resources :relcollects
-  resources :roots
+  resources :root_tables 
   resources :properties
   resources :subjects
   resources :collections

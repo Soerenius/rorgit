@@ -17,9 +17,9 @@
     <% @relcollects.each do |relcollect| %>
       <tr>
         <td><%= relcollect.guid %></td>
-        <td><%= relcollect.guid_relRoot %></td>
-        <td><%= relcollect.guid_relCollection %></td>
-        <td><%= relcollect.guid_typeCollection %></td>
+        <td><%= relcollect.guid_relroot %></td>
+        <td><%= relcollect.guid_relcollection %></td>
+        <td><%= relcollect.guid_typecollection %></td>
         <td><%= link_to 'Show', relcollect %></td>
         <td><%= link_to 'Edit', edit_relcollect_path(relcollect) %></td>
         <td><%= button_to 'Destroy', relcollect, method: :delete, data: { confirm: 'Are you sure?' } %></td>

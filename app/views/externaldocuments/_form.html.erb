@@ -1,4 +1,4 @@
-<%= form_with(model: externaldocument, local: true) do |form| %>
+<%= form_with(model: externaldocument, local: true) do |f| %>
   <% if externaldocument.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(externaldocument.errors.count, "error") %> prohibited this externaldocument from being saved:</h2>
@@ -11,7 +11,12 @@
     </div>
   <% end %>
 
+  <div class="field">
+  <%= f.label :guid %>
+  <%= f.text_field :guid %>
+  </div>
+
   <div class="actions">
-    <%= form.submit %>
+    <%= f.submit %>
   </div>
 <% end %>

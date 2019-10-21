@@ -1,17 +1,27 @@
-<%= form_with(model: object_table, local: true) do |form| %>
-  <% if object_table.errors.any? %>
+<%= form_with(model: root_table, local: true) do |f| %>
+  <% if root_table.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(object_table.errors.count, "error") %> prohibited this object_table from being saved:</h2>
+      <h2><%= pluralize(object_table.errors.count, "error") %> prohibited this root_table from being saved:</h2>
 
       <ul>
-        <% object_table.errors.full_messages.each do |message| %>
+        <% root_table.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
 
+  <div class="field">
+    <%= f.label :guid %>
+    <%= f.text_field :guid %>
+  </div>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
   <div class="actions">
-    <%= form.submit %>
+    <%= f.submit %>
   </div>
 <% end %>

@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Guid</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -12,6 +13,7 @@
   <tbody>
     <% @externaldocuments.each do |externaldocument| %>
       <tr>
+        <td><%= externaldocument.guid %></td>
         <td><%= link_to 'Show', externaldocument %></td>
         <td><%= link_to 'Edit', edit_externaldocument_path(externaldocument) %></td>
         <td><%= link_to 'Destroy', externaldocument, method: :delete, data: { confirm: 'Are you sure?' } %></td>

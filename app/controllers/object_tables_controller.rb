@@ -69,6 +69,7 @@ class ObjectTablesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def object_table_params
-      params.fetch(:object_table, {})
+      #params.fetch(:object_table, {})
+      params.require(:object_table).permit(:guid)
     end
 end
