@@ -64,6 +64,7 @@ gem 'scenic'
 
 gem 'passenger'
 
+gem 'therubyracer', :platforms => :ruby
 
 
 

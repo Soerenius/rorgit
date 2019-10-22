@@ -225,6 +225,7 @@ DEPENDENCIES
   sass-rails (~> 5)
   scenic
   selenium-webdriver
+  therubyracer
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 3.3.0)
