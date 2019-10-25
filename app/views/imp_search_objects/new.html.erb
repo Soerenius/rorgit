@@ -1,0 +1,18 @@
+<h1>Advanced Search</h1>
+
+<%= form_for @imp_search_object, html: {class: "pure-form"} do |s| %>
+
+    <div class="field">
+      <%= s.label :name %><br />
+      <%= s.text_field :name %>
+    </div>
+
+    <div class ="field">
+      <%= s.label :description %><br />
+      <%= s.select :description, options_for_select(@descriptions), :include_blank => true %>
+    </div>
+
+    <div class="actions"><%= s.submit "Search", class: "pure-button pure-button-primary" %></div>
+<% end %>
+
+<p><%= link_to 'Back', root_tables_path %></p>

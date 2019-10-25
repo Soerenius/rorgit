@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Guid:</strong>
+  <%= @root_table.guid %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @root_table.name %>
+</p>
+
+<p>
+  <strong>Versiondate:</strong>
+  <%= @root_table.versiondate %>
+</p>
+
+<p>
+  <strong>Versionid:</strong>
+  <%= @root_table.versionid %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @root_table.description %>
+</p>
+
+<%= link_to 'Bestaetigen', edit_root_table_path(@root_table) %> |
+<%= link_to 'Edit', edit_root_table_path(@root_table) %> |
+<%= link_to 'Back', root_tables_path %>

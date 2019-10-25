@@ -66,5 +66,9 @@ gem 'passenger'
 
 gem 'therubyracer', :platforms => :ruby
 
-gem 'sqlite3'
+#gem 'sqlite3'
+
+gem 'unicorn'
+
+gem 'capistrano-rails', group: :development
 

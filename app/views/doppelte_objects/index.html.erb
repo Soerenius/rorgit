@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Doppelte Objekte</h1>
+
+<table>
+  <thead>
+    <colgroup>
+       <col span="1" style="width: 26%;">
+       <col span="1" style="width: 5%;">
+       <col span="1" style="width: 5%;">
+       <col span="1" style="width: 13%;">
+       <col span="1" style="width: 3%;">
+       <col span="1" style="width: 3%;">
+       <col span="1" style="width: 3%;">
+       <col span="1" style="width: 10%;">
+       <col span="1" style="width: 3%;">
+       <col span="1" style="width: 15%;">
+  </colgroup>
+  
+    <tr>
+      <%#= <th>Guid</th> #%>
+      <th>Fachobjekt</th>
+      <th>Vorkommen</th>
+    </tr>
+    <style>
+      th, td {
+      border: 1px solid black;
+      }
+    </style>
+  </thead>
+
+  <tbody>
+    <% @doppelte_objects.each do |root_table| %>
+      <tr>
+        <%#= <td><%= root_table.guid #%></td> 
+        <td><%= root_table.name %></td>
+        <td><%= root_table.vorkommen %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Back', root_tables_path %>

@@ -1,0 +1,2 @@
+module DoppelteObjectsHelper
+end

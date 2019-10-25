@@ -1,0 +1,88 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Objektartenkatalog (gesamt)</h1>
+
+<%= form_tag root_tables_path, :method => 'get' do %>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag "Suche" %>
+<% end %>
+
+<script language="javascript" type="text/javascript">
+  function showgroup() {
+    var x = document.getElementById("filter");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+} 
+  </script>
+
+<br><%= link_to "Erweiterte Suche", new_imp_search_object_path, :class => "jeja" %><br>
+<br>
+<%= link_to 'Neuer Eintrag', new_root_table_path %><br>
+<br>
+<button type="button" onclick="showgroup()"  class="circle">+ </button>
+
+<div class="field", id="filter" style="display:none">
+<a href = "http://localhost:3000/root_objects"><div style='float: left;'><button class="query">Fachobjekte</button></div></a>
+<a href = "http://localhost:3000/doppelte_objects"><div style='float: none;'><button class="query">Doppelte Objekte</button></div></a>
+<a href = "http://localhost:3000/root_collections"><div style='float: left;'><button class="query">Gruppen</button></div></a>
+<a href = "http://localhost:3000/no_groups"><button class="query">Keine Gruppe</button></a>
+<a href = "http://localhost:3000/root_externaldocuments"><div style='float: none;'><button class="query">Externe Dokumente</button></div></a>
+</div>
+
+<table>
+  <colgroup>
+       <col span="1" style="width: 26%;">
+       <col span="1" style="width: 5%;">
+       <col span="1" style="width: 5%;">
+       <col span="1" style="width: 13%;">
+       <col span="1" style="width: 3%;">
+       <col span="1" style="width: 3%;">
+       <col span="1" style="width: 3%;">
+       <col span="1" style="width: 10%;">
+       <col span="1" style="width: 3%;">
+       <col span="1" style="width: 15%;">
+  </colgroup>
+  <thead>
+    <tr>
+      <%#= <th>Guid</th> #%>
+      <th>Name</th>
+      <th>Versiondate</th>
+      <th>Versionid</th>
+      <th>Description</th>
+      <th colspan="3">Actions</th>
+      <th colspan="2">Collections</th>
+      <th>Documents</th>
+    </tr>
+    <style>
+      th, td {
+      border: 1px solid black;
+      }
+    </style>
+  </thead>
+
+  <tbody>
+    <% @root_tables.each do |root_table| %>
+      <tr>
+        <%#= <td><%= root_table.guid #%></td> 
+        <td><%= root_table.name %></td>
+        <td><%= root_table.versiondate %></td>
+        <td><%= root_table.versionid %></td>
+        <td><%= root_table.description %></td>
+        <td><%= link_to 'Show', root_table_path(id: root_table.guid)  %></td>        
+        <td><%= link_to 'Edit', edit_root_table_path(id: root_table.guid) %></td>
+        <td><%= link_to 'Destroy', root_table_path(id: root_table.guid), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= root_table.collections %></td>
+        <td><%= link_to 'Edit', edit_root_table_path(id: root_table.guid) %></td>
+        <td><%= root_table.documents %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+ 

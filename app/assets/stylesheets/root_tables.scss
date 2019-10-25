@@ -1,0 +1,37 @@
+// Place all the styles related to the roots controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+h1{
+    font-size: 60px;
+    color: rgb(0, 76, 148);
+    background-size: 80px;
+    font-family: 'Open+Sans', sans-serif;
+}
+
+body{
+    background-color: #2CA2B6;
+}
+
+table{
+    background-color: #FDFCFD;
+}
+
+a.jeja{
+    font-size: 20px;
+    font-weight: 700;
+    color: #FDFCFD;
+    background-color: #EEEEEE;
+    border-top: 3px solid #CCCCCC;
+    border-right: 3px solid #333333;
+    border-bottom: 3px solid #333333;
+    border-left: 3px solid #CCCCCC;
+    margin-top: 180px;
+    margin-bottom: 45px;
+    margin: 0
+}
+
+#guid{
+    background-color: grey;
+}
+

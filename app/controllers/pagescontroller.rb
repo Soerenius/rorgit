@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
     def home
-      Pagescontroller
+      render params[:id]
     end
   end

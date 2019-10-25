@@ -1,0 +1,1 @@
+SELECT r.name, r.versiondate, r.versionid, r.description, r.collections FROM root_tables r, collections c WHERE r.guid=c.guid
