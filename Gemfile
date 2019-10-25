@@ -66,5 +66,5 @@ gem 'passenger'
 
 gem 'therubyracer', :platforms => :ruby
 
-
+gem 'sqlite3'
 
