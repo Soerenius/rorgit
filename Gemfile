@@ -68,7 +68,7 @@ gem 'therubyracer', :platforms => :ruby
 
 #gem 'sqlite3'
 
-gem 'unicorn'
+#gem 'unicorn'
 
 gem 'capistrano-rails', group: :development
 
