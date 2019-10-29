@@ -31,7 +31,6 @@ Rails.application.routes.draw do
   resources :relationships
   resources :externaldocuments
   resources :relcollects
-  resources :relcollects
   resources :root_tables 
   resources :properties
   resources :subjects
