@@ -1,6 +1,107 @@
 <h1>Objekt editieren</h1>
 
-<%= render 'form', root_table: @root_table %>
+<%#= render 'form', root_table: @root_table #%><br>
+
+<%= form_with(model: @root_table, local: true) do |f| %>
+    <% if @root_table.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(root_table.errors.count, "error") %> prohibited this root_table from being saved:</h2>
+  
+        <ul>
+          <% root_table.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>   <br>
+
+    <script language="javascript" type="text/javascript">
+  function showgroup() 
+    {
+    var x = document.getElementById("grp2");
+    if (x.style.display === "none") 
+      {
+        x.style.display = "block";
+      } 
+    else 
+      {
+          x.style.display = "none";
+      }
+    } 
+  function jsFunction()
+  {
+   var txt =  document.getElementById("feldid");
+   alert ('test')
+   txt.value = "was";
+  }
+  </script>
+
+  <%#= javascript_include_tag "javas", "data-turbolinks-track" => true  #%>
+
+  <%= @grp %>
+
+  <div class="field">
+    <%= f.label :art %>
+    <%= f.select(:art, options_for_select([['Gruppe','Gruppe'],['Fachobjekt','Fachobjekt'],['Externes Dokument','Externes Dokument']], ''), :include_blank => true) %><br>
+  </div>
+
+  <div class="field">
+    <%= f.label :guid %>
+    <%= f.text_field :guid %>
+  </div>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :versiondate %>
+    <%= f.text_field :versiondate, :value => Time.now.strftime('%Y.%m.%d') %>
+  </div>
+
+  <div class="field">
+    <%= f.label :versionid %>
+    <%= f.text_field :versionid, :value =>  RootTable.maximum("versionid") %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div> 
+
+  <div class="field">
+    <%= f.label :collections %>
+    <%= f.text_field :collections, id: 'feldid' %>
+  </div> 
+
+  <div class="field">
+    <%= f.label :'Zuordnung Gruppe (optional)' %><br>
+    <%= collection_select(:collection1, :id, RootTable.joins("INNER JOIN collections ON collections.guid=root_tables.guid"), :id, :name, 
+    :include_blank => true, id: 'ddid', html_options= :onchange=>"alert(‘test’)")  %>
+  </div>
+
+  <button type="button" onclick="showgroup()"  class="circle">+ </button>
+
+  <div class="field", id="grp2" style="display:none">
+  Weitere Gruppenzuordnungen:<br>
+    <%= collection_select(:collection2, :id, RootTable.joins("INNER JOIN collections ON collections.guid=root_tables.guid"), :id, :name, :include_blank => true)  %><br><br>
+    <%= collection_select(:collection3, :id, RootTable.joins("INNER JOIN collections ON collections.guid=root_tables.guid"), :id, :name, :include_blank => true)  %><br><br>
+    <%= collection_select(:collection4, :id, RootTable.joins("INNER JOIN collections ON collections.guid=root_tables.guid"), :id, :name, :include_blank => true)  %><br><br>
+    <%= collection_select(:collection5, :id, RootTable.joins("INNER JOIN collections ON collections.guid=root_tables.guid"), :id, :name, :include_blank => true)  %><br><br>
+  </div>
+
+  <div class="field">
+    <%= f.label :'Zuordnung Externes Dokument (optional)' %>
+    <%= collection_select(:root_table, :id, RootTable.joins("INNER JOIN externaldocuments ON externaldocuments.guid=root_tables.guid"), :id, :name, :include_blank => true)  %>  
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Einfügen" %>
+  </div>
+<% end %>
+
+
 
 <%= link_to 'Show', @root_table %> |
 <%= link_to 'Back', root_tables_path %>

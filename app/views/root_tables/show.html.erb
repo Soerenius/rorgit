@@ -25,6 +25,16 @@
   <%= @root_table.description %>
 </p>
 
+<p>
+  <strong>Collections:</strong>
+  <%= @root_table.collections %>
+</p>
+
+<p>
+  <strong>Documents:</strong>
+  <%= @root_table.documents %>
+</p>
+
 <%= link_to 'Bestaetigen', edit_root_table_path(@root_table) %> |
 <%= link_to 'Edit', edit_root_table_path(@root_table) %> |
 <%= link_to 'Back', root_tables_path %>
