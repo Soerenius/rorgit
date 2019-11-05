@@ -5,6 +5,14 @@ class RootExternaldocumentsController < ApplicationController
   # GET /root_externaldocuments.json
   def index
     @root_externaldocuments = RootTable.search_externaldocuments(params[:search_externaldocuments])
+    respond_to do |format|
+      format.xlsx {
+        response.headers[
+          'Content-Disposition'
+        ] = "attachment; filename='items.xlsx'"
+      }
+      format.html { render :index }
+    end
   end
 
   # GET /root_externaldocuments/1

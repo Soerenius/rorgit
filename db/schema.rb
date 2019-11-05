@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_18_075754) do
+ActiveRecord::Schema.define(version: 2019_11_05_094043) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -197,8 +197,8 @@ ActiveRecord::Schema.define(version: 2019_10_18_075754) do
     t.datetime "created_at", precision: 6, default: -> { "now()" }, null: false
     t.datetime "updated_at", precision: 6, default: -> { "now()" }, null: false
     t.string "name"
-    t.string "collections"
-    t.string "documents"
+    t.string "collection"
+    t.string "document"
   end
 
   create_table "subjects", id: false, force: :cascade do |t|
@@ -302,9 +302,19 @@ ActiveRecord::Schema.define(version: 2019_10_18_075754) do
       r.versiondate,
       r.versionid,
       r.description,
-      r.collections
+      r.collection AS collections
      FROM root_tables r,
       collections c
     WHERE ((r.guid)::text = (c.guid)::text);
+  SQL
+  create_view "search_objects", sql_definition: <<-SQL
+      SELECT r2.name AS objekt,
+      r1.name
+     FROM root_tables r1,
+      root_tables r2,
+      object_tables o,
+      relassigncollections rac,
+      collections c
+    WHERE (((r1.guid)::text = (o.guid)::text) AND ((o.guid)::text = (rac.guid_relobject)::text) AND ((rac.guid_relcollection)::text = (c.guid)::text) AND ((r2.guid)::text = (c.guid)::text));
   SQL
 end

@@ -7,6 +7,14 @@ class RootObjectsController < ApplicationController
     #@root_objects = RootTable.all
     #@root_objects = RootTable.joins("INNER JOIN object_tables ON root_tables.guid=object_tables.guid")
     @root_objects = RootTable.search_objects(params[:search_objects])
+    respond_to do |format|
+      format.xlsx {
+        response.headers[
+          'Content-Disposition'
+        ] = "attachment; filename='items.xlsx'"
+      }
+      format.html { render :index }
+    end
   end
 
   # GET /root_objects/1

@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<%= javascript_include_tag :'application','coffe' %>
+
 <h1>Objektartenkatalog (gesamt)</h1>
 
 <%= form_tag root_tables_path, :method => 'get' do %>
@@ -22,7 +24,7 @@
 <br>
 <%= link_to 'Neuer Eintrag', new_root_table_path %><br>
 <br>
-<button type="button" onclick="showgroup()"  class="circle">+ </button>
+<button type="button" onclick="showgroup()"  class="circle">+ </button><br>
 
 <div class="field", id="filter" style="display:none">
 <div style='float: left;'><%= button_to 'Fachobjekte', root_object_url(id: ''), :class => "query", :method => :get %></div>
@@ -31,16 +33,6 @@
 <%= button_to 'Keine Gruppe', no_group_url(id: ''), :class => "query", :method => :get %>
 <div style='float: none;'><%= button_to 'Externe Dokumente', root_externaldocument_url(id: ''), :class => "query", :method => :get %></div>
 </div>
-
-<% if false %>
-<div class="field", id="filter2" style="display:none">
-<a href = "http://localhost:3000/root_objects"><div style='float: left;'><button class="query" link_to 'Fachobjekte', root_object_url(id: '')>Fachobjekte</button></div></a>
-<a href = "http://localhost:3000/doppelte_objects"><div style='float: none;'><button class="query">Doppelte Objekte</button></div></a>
-<a href = "http://localhost:3000/root_collections"><div style='float: left;'><button class="query">Gruppen</button></div></a>
-<a href = "http://localhost:3000/no_groups"><button class="query">Keine Gruppe</button></a>
-<a href = "http://localhost:3000/root_externaldocuments"><div style='float: none;'><button class="query">Externe Dokumente</button></div></a>
-</div>
-<% end %>
 
 <table>
   <colgroup>
@@ -84,13 +76,18 @@
         <td><%= link_to 'Show', root_table_path(id: root_table.guid)  %></td>        
         <td><%= link_to 'Edit', edit_root_table_path(id: root_table.guid) %></td>
         <td><%= link_to 'Destroy', root_table_path(id: root_table.guid), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= root_table.collections %></td>
+        <td><%= root_table.collection %></td>
         <td><%= link_to 'Edit', edit_root_table_path(id: root_table.guid) %></td>
-        <td><%= root_table.documents %></td>
+        <td><%= root_table.document %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+<br />
+
+<div class="field">
+<%= link_to 'Download as Excel', root_tables_path(request.parameters.merge({:format => :xlsx, :style => 'color:white;'})), :class => "excel"  %>
+<br /></div>
 
 <br>
 

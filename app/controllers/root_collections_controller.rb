@@ -5,6 +5,14 @@ class RootCollectionsController < ApplicationController
   # GET /root_collections.json
   def index
     @root_collections = RootTable.search_collections(params[:search_collections])
+    respond_to do |format|
+      format.xlsx {
+        response.headers[
+          'Content-Disposition'
+        ] = "attachment; filename='items.xlsx'"
+      }
+      format.html { render :index }
+    end
   end
 
   # GET /root_collections/1

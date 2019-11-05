@@ -1,8 +1,8 @@
 class RootTable < ApplicationRecord
     self.primary_key='guid'
-    has_one :object_table, foreign_key: "guid"
-    has_one :collection, foreign_key: "guid"
-    accepts_nested_attributes_for :object_table
+    has_many :object_tables, foreign_key: "guid"
+    has_many :collections, foreign_key: "guid"
+    accepts_nested_attributes_for :object_tables
 
     include PgSearch::Model 
     

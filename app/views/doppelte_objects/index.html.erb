@@ -42,5 +42,9 @@
 </table>
 
 <br>
+<div class="field">
+<%= link_to 'Download as Excel', doppelte_objects_path(request.parameters.merge({:format => :xlsx, :style => 'color:white;'})), :class => "excel"  %>
+<br /></div>
+<br />
 
 <%= link_to 'Back', root_tables_path %>

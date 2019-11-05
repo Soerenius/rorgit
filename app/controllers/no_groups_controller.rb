@@ -4,9 +4,17 @@ class NoGroupsController < ApplicationController
   # GET /no_groups
   # GET /no_groups.json
   def index
-    @no_groups = RootTable.find_by_sql("SELECT DISTINCT r.guid, r.name, r.versiondate, r.versionid, r.description, r.collections, r.documents
+    @no_groups = RootTable.find_by_sql("SELECT DISTINCT r.guid, r.name, r.versiondate, r.versionid, r.description, r.collection, r.document
     FROM root_tables r, object_tables o
     WHERE r.guid=o.guid AND o.guid NOT IN (SELECT rac.guid_relobject FROM relassigncollections rac)")
+    respond_to do |format|
+      format.xlsx {
+        response.headers[
+          'Content-Disposition'
+        ] = "attachment; filename='items.xlsx'"
+      }
+      format.html { render :index }
+    end
   end
 
   # GET /no_groups/1

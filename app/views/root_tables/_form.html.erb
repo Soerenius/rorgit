@@ -32,9 +32,34 @@
   }
   </script>
 
-  <%#= javascript_include_tag "javas", "data-turbolinks-track" => true  #%>
+  <%#= javascript_include_tag "javas", "data-turbolinks-track" => true  #%><br />
+  <%= javascript_include_tag :'application','coffe' %><br />
 
-  <%= @grp %>
+  
+
+  <% if false %>
+
+  <div class="field">
+    <%= f.label :gruppe_guid, "Gruppen" %><br />
+    <%= f.collection_select(:gruppe_guid, RootTable.joins("INNER JOIN collections ON collections.guid=root_tables.guid").order(:name), 
+    :id, :name, :include_blank => true)  %><br /><br>
+  </div>
+
+  <div class="field">
+    <%= f.label :objekt_guid, "Objekte" %><br />
+    <%= f.grouped_collection_select :guid, SearchCollection.order(:name), 
+    :search_objects, :name, :id, :objekt, :include_blank => true  %><br /><br>
+  </div>
+
+  <div class="field">
+    <%= f.label :objekt_guid, "Objekte" %><br />
+    <%= f.grouped_collection_select :objekt_guid, RootTable.joins("INNER JOIN collections ON collections.guid=root_tables.guid").order(:name), 
+    :object_tables, :name, :id, :name, :include_blank => true  %><br /><br>
+  </div>
+  
+  <% end if %>
+
+  <%= @grp %><br />
 
   <div class="field">
     <%= f.label :art %>
@@ -67,11 +92,6 @@
   </div> 
 
   <div class="field">
-    <%= f.label :collections %>
-    <%= f.text_field :collections, id: 'feldid' %>
-  </div> 
-
-  <div class="field">
     <%= f.label :'Zuordnung Gruppe (optional)' %><br>
     <%= collection_select(:collection1, :id, RootTable.joins("INNER JOIN collections ON collections.guid=root_tables.guid"), :id, :name, 
     :include_blank => true, id: 'ddid', html_options= :onchange=>"alert(‘test’)")  %>
@@ -89,7 +109,7 @@
 
   <div class="field">
     <%= f.label :'Zuordnung Externes Dokument (optional)' %>
-    <%= collection_select(:root_table, :id, RootTable.joins("INNER JOIN externaldocuments ON externaldocuments.guid=root_tables.guid"), :id, :name, :include_blank => true)  %>  
+    <%= collection_select(:document1, :id, RootTable.joins("INNER JOIN externaldocuments ON externaldocuments.guid=root_tables.guid"), :id, :name, :include_blank => true)  %>  
   </div>
 
   <% if false %>
@@ -126,5 +146,3 @@
       }
   </style>
 <% end %>
-
-

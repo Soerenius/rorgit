@@ -71,24 +71,28 @@
   </div> 
 
   <div class="field">
-    <%= f.label :collections %>
-    <%= f.text_field :collections, id: 'feldid' %>
+    <%= f.label :collection %>
+    <%= f.text_field :collection, id: 'feldid' %>
   </div> 
 
   <div class="field">
     <%= f.label :'Zuordnung Gruppe (optional)' %><br>
     <%= collection_select(:collection1, :id, RootTable.joins("INNER JOIN collections ON collections.guid=root_tables.guid"), :id, :name, 
-    :include_blank => true, id: 'ddid', html_options= :onchange=>"alert(‘test’)")  %>
+    :selected => '81271509-3862-4102-9e9b-0cebf646854c', :include_blank => true, id: 'ddid', html_options= :onchange=>"alert(‘test’)")  %>
   </div>
 
   <button type="button" onclick="showgroup()"  class="circle">+ </button>
 
   <div class="field", id="grp2" style="display:none">
   Weitere Gruppenzuordnungen:<br>
-    <%= collection_select(:collection2, :id, RootTable.joins("INNER JOIN collections ON collections.guid=root_tables.guid"), :id, :name, :include_blank => true)  %><br><br>
-    <%= collection_select(:collection3, :id, RootTable.joins("INNER JOIN collections ON collections.guid=root_tables.guid"), :id, :name, :include_blank => true)  %><br><br>
-    <%= collection_select(:collection4, :id, RootTable.joins("INNER JOIN collections ON collections.guid=root_tables.guid"), :id, :name, :include_blank => true)  %><br><br>
-    <%= collection_select(:collection5, :id, RootTable.joins("INNER JOIN collections ON collections.guid=root_tables.guid"), :id, :name, :include_blank => true)  %><br><br>
+    <%= collection_select(:collection2, :id, RootTable.joins("INNER JOIN collections ON collections.guid=root_tables.guid"), :id, :name, 
+    :selected => '', :include_blank => true)  %><br><br>
+    <%= collection_select(:collection3, :id, RootTable.joins("INNER JOIN collections ON collections.guid=root_tables.guid"), :id, :name, 
+    :include_blank => true)  %><br><br>
+    <%= collection_select(:collection4, :id, RootTable.joins("INNER JOIN collections ON collections.guid=root_tables.guid"), :id, :name, 
+    :include_blank => true)  %><br><br>
+    <%= collection_select(:collection5, :id, RootTable.joins("INNER JOIN collections ON collections.guid=root_tables.guid"), :id, :name, 
+    :include_blank => true)  %><br><br>
   </div>
 
   <div class="field">

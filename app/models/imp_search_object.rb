@@ -8,7 +8,5 @@ class ImpSearchObject < ApplicationRecord
         root_tables = root_tables.where(["description LIKE ?",description]) if description.present?
 
         return root_tables
-
     end    
-
 end

@@ -52,15 +52,18 @@
         <td><%= link_to 'Show', root_table_path(id: root_table.guid) %></td>
         <td><%= link_to 'Edit', edit_root_table_path(id: root_table.guid) %></td>
         <td><%= link_to 'Destroy', root_table_path(id: root_table.guid), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= root_table.collections %></td>
+        <td><%= root_table.collection %></td>
         <td><%= link_to 'Edit', edit_root_table_path(id: root_table.guid) %></td>
-        <td><%= root_table.documents %></td>
+        <td><%= root_table.document %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
 <br>
+<div class="field">
+<%= link_to 'Download as Excel', root_collections_path(request.parameters.merge({:format => :xlsx, :style => 'color:white;'})), :class => "excel"  %>
+<br /></div>
+<br />
 
 <%= link_to 'Back', root_tables_path %>
 

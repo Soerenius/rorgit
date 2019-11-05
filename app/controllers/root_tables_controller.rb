@@ -6,6 +6,14 @@ class RootTablesController < ApplicationController
   def index
     # @root_tables = RootTable.all
     @root_tables = RootTable.search(params[:search])
+    respond_to do |format|
+      format.xlsx {
+        response.headers[
+          'Content-Disposition'
+        ] = "attachment; filename='items.xlsx'"
+      }
+      format.html { render :index }
+    end
   end
 
   # GET /root_tables/1
@@ -59,9 +67,9 @@ class RootTablesController < ApplicationController
       @uuid = SecureRandom.uuid      
       @guidvalue = root_table_params[:guid]      
 
-      wahl=RootTable.find(@chosen).name
-      user = RootTable.find_by(guid: @guidvalue)
-      user.update(collections: wahl)
+      gruppenname=RootTable.find(@chosen).name
+      eintrag = RootTable.find_by(guid: @guidvalue)
+      eintrag.update(collections: gruppenname)
       RootTable.create(:guid=>@uuid, :name=>'relationship')
       Relationship.create(:guid=>@uuid)
       Relassigncollection.create(:guid=>@uuid,:guid_relobject=>@guidvalue,:guid_relcollection=>@chosen) 
@@ -71,10 +79,10 @@ class RootTablesController < ApplicationController
       @uuid = SecureRandom.uuid      
       @guidvalue = root_table_params[:guid]  
       
-      wahl2=RootTable.find(@chosen).name
-      user2 = RootTable.find_by(guid: @guidvalue)
+      gruppenname2=RootTable.find(@chosen).name
+      eintrag2 = RootTable.find_by(guid: @guidvalue)
       bisher = RootTable.find(@guidvalue).collections
-      user2.update(collections: (bisher + ', ' + wahl2))
+      eintrag2.update(collections: (bisher + ', ' + gruppenname2))
 
       RootTable.create(:guid=>@uuid, :name=>'relationship')
       Relationship.create(:guid=>@uuid)
@@ -85,10 +93,10 @@ class RootTablesController < ApplicationController
       @uuid = SecureRandom.uuid      
       @guidvalue = root_table_params[:guid]   
       
-      wahl3=RootTable.find(@chosen).name
-      user3 = RootTable.find_by(guid: @guidvalue)
+      gruppenname3=RootTable.find(@chosen).name
+      eintrag3 = RootTable.find_by(guid: @guidvalue)
       bisher = RootTable.find(@guidvalue).collections
-      user3.update(collections: (bisher + ', ' + wahl3))
+      eintrag3.update(collections: (bisher + ', ' + gruppenname3))
 
       RootTable.create(:guid=>@uuid, :name=>'relationship')
       Relationship.create(:guid=>@uuid)
@@ -99,10 +107,10 @@ class RootTablesController < ApplicationController
       @uuid = SecureRandom.uuid      
       @guidvalue = root_table_params[:guid]  
       
-      wahl4=RootTable.find(@chosen).name
-      user4 = RootTable.find_by(guid: @guidvalue)
+      gruppenname4=RootTable.find(@chosen).name
+      eintrag4 = RootTable.find_by(guid: @guidvalue)
       bisher = RootTable.find(@guidvalue).collections
-      user4.update(collections: (bisher + ', ' + wahl4))
+      eintrag4.update(collections: (bisher + ', ' + gruppenname4))
 
       RootTable.create(:guid=>@uuid, :name=>'relationship')
       Relationship.create(:guid=>@uuid)
@@ -113,14 +121,27 @@ class RootTablesController < ApplicationController
       @uuid = SecureRandom.uuid      
       @guidvalue = root_table_params[:guid]   
       
-      wahl5=RootTable.find(@chosen).name
-      user5 = RootTable.find_by(guid: @guidvalue)
+      gruppenname5=RootTable.find(@chosen).name
+      eintrag5 = RootTable.find_by(guid: @guidvalue)
       bisher = RootTable.find(@guidvalue).collections
-      user5.update(collections: (bisher + ', ' + wahl5))
+      eintrag5.update(collections: (bisher + ', ' + gruppenname5))
 
       RootTable.create(:guid=>@uuid, :name=>'relationship')
       Relationship.create(:guid=>@uuid)
       Relassigncollection.create(:guid=>@uuid,:guid_relobject=>@guidvalue,:guid_relcollection=>@chosen)  
+    end 
+    if params[:document1].values[0] != "" && params[:root_table][:art] == 'Fachobjekt'
+      @chosen = params[:document1].values[0]
+      #raise @chosen.inspect
+      @uuid = SecureRandom.uuid      
+      @guidvalue = root_table_params[:guid]      
+
+      docname=RootTable.find(@chosen).name
+      eintrag = RootTable.find_by(guid: @guidvalue)
+      eintrag.update(documents: docname)
+      RootTable.create(:guid=>@uuid, :name=>'relationship')
+      Relationship.create(:guid=>@uuid)
+      Reldocument.create(:guid=>@uuid,:guid_relroot=>@guidvalue,:guid_reldocument=>@chosen) 
     end 
     if params[:collection1].values[0] != "" && params[:root_table][:art] == 'Gruppe'
       @chosen = params[:collection1].values[0]
@@ -171,8 +192,7 @@ class RootTablesController < ApplicationController
       RootTable.create(:guid=>@uuid, :name=>'relationship')
       Relationship.create(:guid=>@uuid)
       Relcollect.create(:guid=>@uuid,:guid_relroot=>@guidvalue,:guid_relcollection=>@chosen,:guid_typecollection=>@type) 
-    end  
-
+    end 
   end
 
   # PATCH/PUT /root_tables/1
@@ -207,7 +227,7 @@ class RootTablesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def root_table_params
-      params.require(:root_table).permit(:guid, :name, :versiondate, :versionid, :description, :collections)
+      params.require(:root_table).permit(:guid, :name, :versiondate, :versionid, :description, :collection, :document)
     end
 
     def set_object_table

@@ -57,8 +57,8 @@ gem 'jquery-rails'
 gem 'pg_search'
 
 gem 'rubyzip', '>= 1.2.1'
-#gem 'axlsx', git: 'https://github.com/randym/axlsx.git', ref: 'c8ac844'
-#gem 'axlsx_rails'
+gem 'axlsx', git: 'https://github.com/randym/axlsx.git', ref: 'c8ac844'
+gem 'axlsx_rails'
 
 gem 'scenic'
 
@@ -66,9 +66,16 @@ gem 'passenger'
 
 gem 'therubyracer', :platforms => :ruby
 
+gem 'coffee-script-source'
+gem 'json'
+gem 'execjs'
+
 #gem 'sqlite3'
 
 #gem 'unicorn'
 
 gem 'capistrano-rails', group: :development
 
+gem 'barista'
+
+gem 'composite_primary_keys'
