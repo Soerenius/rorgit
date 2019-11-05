@@ -6,14 +6,14 @@ class RootTablesController < ApplicationController
   def index
     # @root_tables = RootTable.all
     @root_tables = RootTable.search(params[:search])
-    respond_to do |format|
-      format.xlsx {
-        response.headers[
-          'Content-Disposition'
-        ] = "attachment; filename='items.xlsx'"
-      }
-      format.html { render :index }
-    end
+    #respond_to do |format|
+    #  format.xlsx {
+    #    response.headers[
+    #      'Content-Disposition'
+    #    ] = "attachment; filename='items.xlsx'"
+    #  }
+    #  format.html { render :index }
+    #end
   end
 
   # GET /root_tables/1
