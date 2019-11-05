@@ -9,14 +9,14 @@ class DoppelteObjectsController < ApplicationController
     WHERE r.guid=o.guid
     GROUP BY r.name
     HAVING COUNT(r.name)>1")
-    respond_to do |format|
-      format.xlsx {
-        response.headers[
-          'Content-Disposition'
-        ] = "attachment; filename='items.xlsx'"
-      }
-      format.html { render :index }
-    end
+    #respond_to do |format|
+    #  format.xlsx {
+    #    response.headers[
+    #      'Content-Disposition'
+    #    ] = "attachment; filename='items.xlsx'"
+    #  }
+    #  format.html { render :index }
+    #end
   end
 
   # GET /doppelte_objects/1
