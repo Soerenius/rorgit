@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_05_094043) do
+ActiveRecord::Schema.define(version: 2019_11_06_082141) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -307,9 +307,43 @@ ActiveRecord::Schema.define(version: 2019_11_05_094043) do
       collections c
     WHERE ((r.guid)::text = (c.guid)::text);
   SQL
-  create_view "search_objects", sql_definition: <<-SQL
+  create_view "view_objects", sql_definition: <<-SQL
       SELECT r2.name AS objekt,
-      r1.name
+      r1.name,
+      r1.guid
+     FROM root_tables r1,
+      root_tables r2,
+      object_tables o,
+      relassigncollections rac,
+      collections c
+    WHERE (((r1.guid)::text = (o.guid)::text) AND ((o.guid)::text = (rac.guid_relobject)::text) AND ((rac.guid_relcollection)::text = (c.guid)::text) AND ((r2.guid)::text = (c.guid)::text));
+  SQL
+  create_view "view_object_ids", sql_definition: <<-SQL
+      SELECT r2.name AS objekt,
+      r1.name,
+      r1.guid AS search_collection_id
+     FROM root_tables r1,
+      root_tables r2,
+      object_tables o,
+      relassigncollections rac,
+      collections c
+    WHERE (((r1.guid)::text = (o.guid)::text) AND ((o.guid)::text = (rac.guid_relobject)::text) AND ((rac.guid_relcollection)::text = (c.guid)::text) AND ((r2.guid)::text = (c.guid)::text));
+  SQL
+  create_view "view_collections", sql_definition: <<-SQL
+      SELECT r.guid,
+      r.name,
+      r.versiondate,
+      r.versionid,
+      r.description,
+      r.collection
+     FROM root_tables r,
+      collections c
+    WHERE ((r.guid)::text = (c.guid)::text);
+  SQL
+  create_view "view_object_neus", sql_definition: <<-SQL
+      SELECT r2.name AS objekt,
+      r1.name,
+      r1.guid AS view_collection_id
      FROM root_tables r1,
       root_tables r2,
       object_tables o,

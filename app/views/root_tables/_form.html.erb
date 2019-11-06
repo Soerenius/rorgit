@@ -33,11 +33,11 @@
   </script>
 
   <%#= javascript_include_tag "javas", "data-turbolinks-track" => true  #%><br />
-  <%#= javascript_include_tag :'application','coffe' #%><br />
-
   
 
-  <% if false %>
+  <% if false %>  
+
+  <%= javascript_include_tag :'application','coffe' %><br />
 
   <div class="field">
     <%= f.label :gruppe_guid, "Gruppen" %><br />
@@ -47,8 +47,14 @@
 
   <div class="field">
     <%= f.label :objekt_guid, "Objekte" %><br />
-    <%= f.grouped_collection_select :guid, SearchCollection.order(:name), 
-    :search_objects, :name, :id, :objekt, :include_blank => true  %><br /><br>
+    <%= f.grouped_collection_select :objekt_guid, ViewCollection.order(:name), 
+    :view_object_neus, :name, :view_collection_id, :view_collection_id, :include_blank => true  %><br /><br>
+  </div>
+
+  <div class="field">
+    <%= f.label :objekt_guid, "Objekte" %><br />
+    <%= f.grouped_collection_select :objekt_guid, RootTable.joins("INNER JOIN collections ON collections.guid=root_tables.guid").order(:name), 
+    :collections, :name, :id, :name, :include_blank => true  %><br /><br>
   </div>
 
   <div class="field">
