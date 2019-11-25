@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Object Tables</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Guid</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @object_tables.each do |object_table| %>
+      <tr>
+        <td><%= object_table.guid %></td>
+        <td><%= link_to 'Show', object_table %></td>
+        <td><%= link_to 'Edit', edit_object_table_path(object_table) %></td>
+        <td><%= link_to 'Destroy', object_table, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Object Table', new_object_table_path %>

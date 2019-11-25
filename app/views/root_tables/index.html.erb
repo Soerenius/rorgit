@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Root Tables</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Guid</th>
+      <th>Name</th>
+      <th>Versiondate</th>
+      <th>Versionid</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @root_tables.each do |root_table| %>
+      <tr>
+        <td><%= root_table.guid %></td>
+        <td><%= root_table.name %></td>
+        <td><%= root_table.versiondate %></td>
+        <td><%= root_table.versionid %></td>
+        <td><%= root_table.description %></td>
+        <td><%= link_to 'Show', root_table %></td>
+        <td><%= link_to 'Edit', edit_root_table_path(root_table) %></td>
+        <td><%= link_to 'Destroy', root_table, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Root Table', new_root_table_path %>

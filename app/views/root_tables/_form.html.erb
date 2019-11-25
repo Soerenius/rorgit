@@ -1,0 +1,42 @@
+<%= form_with(model: root_table, local: true) do |form| %>
+  <% if root_table.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(root_table.errors.count, "error") %> prohibited this root_table from being saved:</h2>
+
+      <ul>
+        <% root_table.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :guid %>
+    <%= form.text_field :guid %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :versiondate %>
+    <%= form.text_field :versiondate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :versionid %>
+    <%= form.text_field :versionid %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
