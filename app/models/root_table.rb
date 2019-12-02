@@ -4,6 +4,7 @@ class RootTable < ApplicationRecord
     has_one :collection, autosave: true, foreign_key: 'guid', dependent: :delete
     #after_save :update_object
     has_one :art, foreign_key: 'id'
+    
 
     #def update_object
     #    if params[:root_table][:art].Value == 'Fachobjekt'

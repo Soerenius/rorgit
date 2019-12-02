@@ -1,5 +1,7 @@
 ActiveAdmin.register RootTable do
   permit_params :guid, :name, :versiondate, :versionid, :description, :created_at, :updated_at
+  
+  menu label: "Gesamt"  
 
   #filter :"subscription_billing_plan_name" , :as => :select, :collection => RootTable.all.map(&:name)  
 
@@ -12,7 +14,8 @@ ActiveAdmin.register RootTable do
   filter :created_at, label: 'created_at', as: :date_range
   filter :updated_at, label: 'updated_at', as: :date_range
 
-  index do
+  index :title => "Gesamt" do
+    column :guid
     column :name
     column :versiondate
     column :versionid
@@ -36,6 +39,7 @@ ActiveAdmin.register RootTable do
     f.object.created_at = DateTime.now
     f.object.updated_at = DateTime.now
     f.inputs do
+      #new_record: 'Leave Comment'
       f.select :art, ["Fachobjekt", "Gruppe", "Externes Dokument"], :prompt => 'Bitte wählen! '
       f.input :guid, :input_html => { :readonly => true }
       f.input :name
@@ -54,11 +58,16 @@ ActiveAdmin.register RootTable do
   
     def update_object(guid)
       if params[:root_table][:art] == 'Fachobjekt'
-        ObjectTable.create(:guid => $uuid)      
+        ObjectTable.create(:guid => $uuid)  
       elsif params[:root_table][:art] == 'Gruppe'
         Collection.create(:guid => $uuid) 
      # elsif params[:root_table][:art] == 'Externes Dokument'
       end
     end
   end  
+
+  #show do 
+  #  root_table :guid, :name
+  #  active_admin_comments
+  #end
 end
