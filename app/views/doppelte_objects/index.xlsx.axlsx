@@ -1,0 +1,10 @@
+wb = xlsx_package.workbook
+
+wb.add_worksheet(name: "Items") do |sheet|
+  # Create the header row
+  sheet.add_row ["Guid", "Name", "versiondate", "versionid", "description", "collection", "document"]
+  # Create entries for each item
+  @doppelte_objects.each do |root_table|
+    sheet.add_row [root_table.guid, root_table.name, root_table.vorkommen]
+  end
+end

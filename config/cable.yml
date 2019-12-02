@@ -7,4 +7,8 @@ test:
 production:
   adapter: redis
   url: <%= ENV.fetch("REDIS_URL") { "redis://localhost:6379/1" } %>
+<<<<<<< HEAD
   channel_prefix: oldb_aa_production
+=======
+  channel_prefix: objektlistendb4_production
+>>>>>>> 8e31398c502b5332a4908c846796eb04e6245ac6

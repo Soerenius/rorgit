@@ -23,16 +23,29 @@ default: &default
 
 development:
   <<: *default
+<<<<<<< HEAD
   database: oldb_aa_development
+=======
+  database: objektlistendb4_development
+  username: subuser
+  password: dbpw2019
+>>>>>>> 8e31398c502b5332a4908c846796eb04e6245ac6
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user that initialized the database.
+<<<<<<< HEAD
   username: subuser
 
   # The password associated with the postgres role (username).
   password: dbpw2019
+=======
+  #username: objektlistendb4
+
+  # The password associated with the postgres role (username).
+  #password:
+>>>>>>> 8e31398c502b5332a4908c846796eb04e6245ac6
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -57,7 +70,11 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
+<<<<<<< HEAD
   database: oldb_aa_test
+=======
+  database: objektlistendb4_test
+>>>>>>> 8e31398c502b5332a4908c846796eb04e6245ac6
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -80,6 +97,12 @@ test:
 #
 production:
   <<: *default
+<<<<<<< HEAD
   database: oldb_aa_production
   username: oldb_aa
   password: <%= ENV['OLDB_AA_DATABASE_PASSWORD'] %>
+=======
+  database: objektlistendb4_production
+  username: objektlistendb4
+  password: <%= ENV['OBJEKTLISTENDB4_DATABASE_PASSWORD'] %>
+>>>>>>> 8e31398c502b5332a4908c846796eb04e6245ac6

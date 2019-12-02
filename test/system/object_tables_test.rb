@@ -14,7 +14,10 @@ class ObjectTablesTest < ApplicationSystemTestCase
     visit object_tables_url
     click_on "New Object Table"
 
+<<<<<<< HEAD
     fill_in "Guid", with: @object_table.guid
+=======
+>>>>>>> 8e31398c502b5332a4908c846796eb04e6245ac6
     click_on "Create Object table"
 
     assert_text "Object table was successfully created"
@@ -25,7 +28,10 @@ class ObjectTablesTest < ApplicationSystemTestCase
     visit object_tables_url
     click_on "Edit", match: :first
 
+<<<<<<< HEAD
     fill_in "Guid", with: @object_table.guid
+=======
+>>>>>>> 8e31398c502b5332a4908c846796eb04e6245ac6
     click_on "Update Object table"
 
     assert_text "Object table was successfully updated"

@@ -1,0 +1,2 @@
+module NoGroupsHelper
+end

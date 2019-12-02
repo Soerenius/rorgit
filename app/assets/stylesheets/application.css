@@ -13,3 +13,73 @@
  *= require_tree .
  *= require_self
  */
+<<<<<<< HEAD
+=======
+
+ @import url('https://fonts.google.com/specimen/Open+Sans');
+ @import url('https://fonts.google.com/specimen/Montserrat');
+
+ .hidden { display: none; }
+
+
+ h1{
+   font-size: 60px;
+   color: rgb(0, 76, 148);
+   background-size: 80px;
+   font-family: 'Open+Sans', sans-serif;
+}
+
+.query {
+  background-color: rgb(4, 148, 169);
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 6px;
+  width: 250px;
+  height: 70px;
+}
+
+.excel {
+  background-color: rgb(4, 148, 169);
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 6px;
+  width: 100px;
+  height: 40px;
+}
+.circle {
+  background-color: rgb(0, 76, 148);
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 30px;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+button:hover {
+   background-color: rgb(0, 76, 148);
+   color: white;
+ }
+
+ * {
+    font-family: 'Open+Sans', sans-serif;
+   }
+
+>>>>>>> 8e31398c502b5332a4908c846796eb04e6245ac6

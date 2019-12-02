@@ -1,35 +1,126 @@
 <p id="notice"><%= notice %></p>
 
+<<<<<<< HEAD
 <h1>Root Tables</h1>
 
 <table>
   <thead>
     <tr>
       <th>Guid</th>
+=======
+<%#= javascript_include_tag :'application','coffe' #%>
+
+<h1>Objektartenkatalog (gesamt)</h1>
+
+<%= form_tag root_tables_path, :method => 'get' do %>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag "Suche" %>
+<% end %>
+
+<script language="javascript" type="text/javascript">
+  function showgroup() {
+    var x = document.getElementById("filter");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+} 
+  </script>
+
+<br><%= link_to "Erweiterte Suche", new_imp_search_object_path, :class => "jeja" %><br>
+<br>
+<%= link_to 'Neuer Eintrag', new_root_table_path %><br>
+<br>
+<button type="button" onclick="showgroup()"  class="circle">+ </button><br>
+
+<div class="field", id="filter" style="display:none">
+<div style='float: left;'><%= button_to 'Fachobjekte', root_object_url(id: ''), :class => "query", :method => :get %></div>
+<div style='float: none;'><%= button_to 'Doppelte Objekte', doppelte_object_url(id: ''), :class => "query", :method => :get %></div>
+<div style='float: left;'><%= button_to 'Gruppen', root_collection_url(id: ''), :class => "query", :method => :get %></div>
+<%= button_to 'Keine Gruppe', no_group_url(id: ''), :class => "query", :method => :get %>
+<div style='float: none;'><%= button_to 'Externe Dokumente', root_externaldocument_url(id: ''), :class => "query", :method => :get %></div>
+</div>
+
+<table>
+  <colgroup>
+       <col span="1" style="width: 26%;">
+       <col span="1" style="width: 5%;">
+       <col span="1" style="width: 5%;">
+       <col span="1" style="width: 13%;">
+       <col span="1" style="width: 3%;">
+       <col span="1" style="width: 3%;">
+       <col span="1" style="width: 3%;">
+       <col span="1" style="width: 10%;">
+       <col span="1" style="width: 3%;">
+       <col span="1" style="width: 15%;">
+  </colgroup>
+  <thead>
+    <tr>
+      <%#= <th>Guid</th> #%>
+>>>>>>> 8e31398c502b5332a4908c846796eb04e6245ac6
       <th>Name</th>
       <th>Versiondate</th>
       <th>Versionid</th>
       <th>Description</th>
+<<<<<<< HEAD
       <th colspan="3"></th>
     </tr>
+=======
+      <th colspan="3">Actions</th>
+      <th colspan="2">Collections</th>
+      <th>Documents</th>
+    </tr>
+    <style>
+      th, td {
+      border: 1px solid black;
+      }
+    </style>
+>>>>>>> 8e31398c502b5332a4908c846796eb04e6245ac6
   </thead>
 
   <tbody>
     <% @root_tables.each do |root_table| %>
       <tr>
+<<<<<<< HEAD
         <td><%= root_table.guid %></td>
+=======
+        <%#= <td><%= root_table.guid #%></td> 
+>>>>>>> 8e31398c502b5332a4908c846796eb04e6245ac6
         <td><%= root_table.name %></td>
         <td><%= root_table.versiondate %></td>
         <td><%= root_table.versionid %></td>
         <td><%= root_table.description %></td>
+<<<<<<< HEAD
         <td><%= link_to 'Show', root_table %></td>
         <td><%= link_to 'Edit', edit_root_table_path(root_table) %></td>
         <td><%= link_to 'Destroy', root_table, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+=======
+        <td><%= link_to 'Show', root_table_path(id: root_table.guid)  %></td>        
+        <td><%= link_to 'Edit', edit_root_table_path(id: root_table.guid) %></td>
+        <td><%= link_to 'Destroy', root_table_path(id: root_table.guid), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= root_table.collection %></td>
+        <td><%= link_to 'Edit', edit_root_table_path(id: root_table.guid) %></td>
+        <td><%= root_table.document %></td>
+>>>>>>> 8e31398c502b5332a4908c846796eb04e6245ac6
       </tr>
     <% end %>
   </tbody>
 </table>
+<<<<<<< HEAD
 
 <br>
 
 <%= link_to 'New Root Table', new_root_table_path %>
+=======
+<br />
+
+<div class="field">
+<%= link_to 'Download as Excel', root_tables_path(request.parameters.merge({:format => :xlsx, :style => 'color:white;'})), :class => "excel"  %>
+<br /></div>
+
+<br>
+
+
+ 
+>>>>>>> 8e31398c502b5332a4908c846796eb04e6245ac6

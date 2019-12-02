@@ -1,16 +1,31 @@
 body {
   background-color: #fff;
   color: #333;
+<<<<<<< HEAD
   margin: 33px; }
 
 body, p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px; }
+=======
+  margin: 33px;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+>>>>>>> 8e31398c502b5332a4908c846796eb04e6245ac6
 
 pre {
   background-color: #eee;
   padding: 10px;
+<<<<<<< HEAD
   font-size: 11px; }
 
 a {
@@ -35,17 +50,58 @@ div.actions {
 
 #notice {
   color: green; }
+=======
+  font-size: 11px;
+}
+
+a {
+  color: #000;
+
+  &:visited {
+    color: #666;
+  }
+
+  &:hover {
+    color: #fff;
+    background-color: #000;
+  }
+}
+
+th {
+  padding-bottom: 5px;
+}
+
+td {
+  padding: 0 5px 7px;
+}
+
+div {
+  &.field, &.actions {
+    margin-bottom: 10px;
+  }
+}
+
+#notice {
+  color: green;
+}
+>>>>>>> 8e31398c502b5332a4908c846796eb04e6245ac6
 
 .field_with_errors {
   padding: 2px;
   background-color: red;
+<<<<<<< HEAD
   display: table; }
+=======
+  display: table;
+}
+>>>>>>> 8e31398c502b5332a4908c846796eb04e6245ac6
 
 #error_explanation {
   width: 450px;
   border: 2px solid red;
   padding: 7px 7px 0;
   margin-bottom: 20px;
+<<<<<<< HEAD
   background-color: #f0f0f0; }
 
 #error_explanation h2 {
@@ -63,3 +119,26 @@ div.actions {
 
 label {
   display: block; }
+=======
+  background-color: #f0f0f0;
+
+  h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px -7px 0;
+    background-color: #c00;
+    color: #fff;
+  }
+
+  ul li {
+    font-size: 12px;
+    list-style: square;
+  }
+}
+
+label {
+  display: block;
+}
+>>>>>>> 8e31398c502b5332a4908c846796eb04e6245ac6

@@ -1,0 +1,37 @@
+<%= form_with(model: relcollect, local: true) do |form| %>
+  <% if relcollect.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(relcollect.errors.count, "error") %> prohibited this relcollect from being saved:</h2>
+
+      <ul>
+        <% relcollect.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :guid %>
+    <%= form.text_field :guid %>
+  </div>
+
+  <div class="field">
+    <%= form.label :guid_relRoot %>
+    <%= form.text_field :guid_relRoot %>
+  </div>
+
+  <div class="field">
+    <%= form.label :guid_relCollection %>
+    <%= form.text_field :guid_relCollection %>
+  </div>
+
+  <div class="field">
+    <%= form.label :guid_typeCollection %>
+    <%= form.text_field :guid_typeCollection %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

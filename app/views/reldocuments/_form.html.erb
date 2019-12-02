@@ -1,0 +1,17 @@
+<%= form_with(model: reldocument, local: true) do |form| %>
+  <% if reldocument.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(reldocument.errors.count, "error") %> prohibited this reldocument from being saved:</h2>
+
+      <ul>
+        <% reldocument.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

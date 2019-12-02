@@ -1,0 +1,17 @@
+<%= form_with(model: typerelassociate, local: true) do |form| %>
+  <% if typerelassociate.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(typerelassociate.errors.count, "error") %> prohibited this typerelassociate from being saved:</h2>
+
+      <ul>
+        <% typerelassociate.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,17 @@
+<h1>Search Result</h1>
+<p><%= link_to 'Back', new_imp_search_object_path %></p>
+
+<% if @imp_search_object.search_root_tables.empty? %>
+
+  <p>No Records Found</p>
+
+<% else %>
+  <% @imp_search_object.search_root_tables.each do |c| %>
+    <br>
+
+    <div class="div">
+      <h1><%= c.name %></h1>
+      <p>Description: <%= c.description %></p>
+    </div>
+  <% end %>
+<% end %>

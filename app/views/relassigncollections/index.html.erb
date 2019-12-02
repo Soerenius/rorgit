@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Relassigncollections</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @relassigncollections.each do |relassigncollection| %>
+      <tr>
+        <td><%= link_to 'Show', relassigncollection %></td>
+        <td><%= link_to 'Edit', edit_relassigncollection_path(relassigncollection) %></td>
+        <td><%= link_to 'Destroy', relassigncollection, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Relassigncollection', new_relassigncollection_path %>

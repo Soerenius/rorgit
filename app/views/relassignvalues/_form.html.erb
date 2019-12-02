@@ -1,0 +1,17 @@
+<%= form_with(model: relassignvalue, local: true) do |form| %>
+  <% if relassignvalue.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(relassignvalue.errors.count, "error") %> prohibited this relassignvalue from being saved:</h2>
+
+      <ul>
+        <% relassignvalue.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

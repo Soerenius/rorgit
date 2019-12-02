@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <%= form_with(model: object_table, local: true) do |form| %>
   <% if object_table.errors.any? %>
     <div id="error_explanation">
@@ -5,6 +6,15 @@
 
       <ul>
         <% object_table.errors.full_messages.each do |message| %>
+=======
+<%= form_with(model: root_table, local: true) do |f| %>
+  <% if root_table.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(object_table.errors.count, "error") %> prohibited this root_table from being saved:</h2>
+
+      <ul>
+        <% root_table.errors.full_messages.each do |message| %>
+>>>>>>> 8e31398c502b5332a4908c846796eb04e6245ac6
           <li><%= message %></li>
         <% end %>
       </ul>
@@ -12,11 +22,25 @@
   <% end %>
 
   <div class="field">
+<<<<<<< HEAD
     <%= form.label :guid %>
     <%= form.text_field :guid %>
   </div>
 
   <div class="actions">
     <%= form.submit %>
+=======
+    <%= f.label :guid %>
+    <%= f.text_field :guid %>
+  </div>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+>>>>>>> 8e31398c502b5332a4908c846796eb04e6245ac6
   </div>
 <% end %>

@@ -1,0 +1,17 @@
+<%= form_with(model: relassigncollection, local: true) do |form| %>
+  <% if relassigncollection.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(relassigncollection.errors.count, "error") %> prohibited this relassigncollection from being saved:</h2>
+
+      <ul>
+        <% relassigncollection.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Guid:</strong>
+  <%= @relcollect_t.guid %>
+</p>
+
+<p>
+  <strong>Guid relroot:</strong>
+  <%= @relcollect_t.guid_relRoot %>
+</p>
+
+<p>
+  <strong>Guid relcollection:</strong>
+  <%= @relcollect_t.guid_relCollection %>
+</p>
+
+<p>
+  <strong>Guid typecollection:</strong>
+  <%= @relcollect_t.guid_typeCollection %>
+</p>
+
+<%= link_to 'Edit', edit_relcollect_t_path(@relcollect_t) %> |
+<%= link_to 'Back', relcollect_ts_path %>

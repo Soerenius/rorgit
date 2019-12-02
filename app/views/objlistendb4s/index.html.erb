@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Objlistendb4s</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @objlistendb4s.each do |objlistendb4| %>
+      <tr>
+        <td><%= link_to 'Show', objlistendb4 %></td>
+        <td><%= link_to 'Edit', edit_objlistendb4_path(objlistendb4) %></td>
+        <td><%= link_to 'Destroy', objlistendb4, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Objlistendb4', new_objlistendb4_path %>
