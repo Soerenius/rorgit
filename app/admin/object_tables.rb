@@ -18,7 +18,7 @@ ActiveAdmin.register ObjectTable do
 
 
   form do |f|
-    $uname = RootTable.find('35562037-49f0-4ef0-87c7-b3bc255aaafd').name
+    #$uname = RootTable.find('35562037-49f0-4ef0-87c7-b3bc255aaafd').name
     #$uname = "ausi"
 
     #raise $uname.inspect
@@ -37,7 +37,7 @@ ActiveAdmin.register ObjectTable do
   end
 
   controller do
-    $uname = RootTable.find('35562037-49f0-4ef0-87c7-b3bc255aaafd').name
+    #$uname = RootTable.find('35562037-49f0-4ef0-87c7-b3bc255aaafd').name
     #object.name = $uname
     #inputs do
     #  input :name
